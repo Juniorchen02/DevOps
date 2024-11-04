@@ -8,24 +8,23 @@ const Profile = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-          const response = await fetch("http://localhost:5000/me", {
-              credentials: "include",
-          });
-  
-          if (response.ok) {
-              const userData = await response.json();
-              setUser(userData);
-          } else {
-              const errorMessage = await response.json();
-              console.error("Error fetching user data:", errorMessage);
-              setMessage(errorMessage.msg || "User not found. Please log in.");
-          }
+        const response = await fetch("http://localhost:5000/me", {
+          credentials: "include",
+        });
+
+        if (response.ok) {
+          const userData = await response.json();
+          setUser(userData);
+        } else {
+          const errorMessage = await response.json();
+          console.error("Error fetching user data:", errorMessage);
+          setMessage(errorMessage.msg || "User not found. Please log in.");
+        }
       } catch (error) {
-          console.error("Error fetching user data:", error);
-          setMessage("An error occurred. Please try again.");
+        console.error("Error fetching user data:", error);
+        setMessage("An error occurred. Please try again.");
       }
-  };
-  
+    };
 
     fetchUser();
   }, []);
@@ -60,11 +59,16 @@ const Profile = () => {
   return (
     <div className="profile-container">
       <div className="profile-card">
-        <h2>Profile</h2>
-        <p><strong>Username:</strong> {user.name}</p>
-        <p><strong>Email:</strong> {user.email}</p>
-        <button className="btn logout" onClick={handleLogout}>Logout</button>
-        <button className="btn home" onClick={() => window.location.href = "/"}>Home</button>
+        <div className="profile-image">
+          <img src={user.image} alt="User" />
+        </div>
+        <div className="profile-info">
+          <h2>Profile</h2>
+          <p><strong>Username:</strong> {user.name}</p>
+          <p><strong>Email:</strong> {user.email}</p>
+          <button className="btn home" onClick={() => window.location.href = "/"}>Home</button>
+          <button className="btn logout" onClick={handleLogout}>Logout</button>
+        </div>
       </div>
     </div>
   );
