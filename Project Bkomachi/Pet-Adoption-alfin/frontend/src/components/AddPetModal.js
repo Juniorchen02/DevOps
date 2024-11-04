@@ -77,9 +77,10 @@ function AddPetModal({ isOpen, onClose }) {
                     <div className="form-group">
                         <label>Gambar:</label>
                         <input
-                            type="file"
-                            accept="image/*"
-                            onChange={handleImageChange}
+                            type="text"
+                            placeholder="Url"
+                            value={image}
+                            onChange={(e) => setImage(e.target.value)}
                             required
                         />
                     </div>

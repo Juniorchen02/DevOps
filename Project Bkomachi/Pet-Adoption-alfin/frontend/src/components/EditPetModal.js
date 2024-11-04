@@ -50,16 +50,10 @@ function EditPetModal({ isOpen, onClose, onEditPet, pet }) {
                     <div className="form-group">
                         <label>Gambar:</label>
                         <input
-                            type="file"
-                            accept="image/*"
-                            onChange={(e) => {
-                                const file = e.target.files[0];
-                                if (file) {
-                                    const reader = new FileReader();
-                                    reader.onloadend = () => setImage(reader.result);
-                                    reader.readAsDataURL(file);
-                                }
-                            }}
+                            type="text"
+                            value={image}
+                            onChange={(e) => setImage(e.target.value)}
+                            required
                         />
                     </div>
                     <div className="form-group">

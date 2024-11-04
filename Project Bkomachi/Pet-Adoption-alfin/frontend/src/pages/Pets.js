@@ -93,7 +93,7 @@ function Pets() {
 
   const filteredPets = petsData.filter(pet => {
     const matchesSearch = pet.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesType = filteredTypes.length === 0 || filteredTypes.includes(pet.type);
+    const matchesType = filteredTypes.length === 0 || filteredTypes.includes(pet.name);
     return matchesSearch && matchesType;
   });
 
@@ -101,9 +101,9 @@ function Pets() {
     setSearchTerm(e.target.value);
   };
 
-  const handleFilterChange = (type) => {
+  const handleFilterChange = (name) => {
     setFilteredTypes(prev =>
-      prev.includes(type) ? prev.filter(t => t !== type) : [...prev, type]
+      prev.includes(name) ? prev.filter(t => t !== name) : [...prev, name]
     );
   };
 

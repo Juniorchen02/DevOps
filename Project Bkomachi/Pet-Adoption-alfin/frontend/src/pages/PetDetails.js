@@ -45,11 +45,10 @@ const PetDetails = () => {
         <div className="info-container">
           <h2>{pet.name}</h2>
           <p>{pet.description}</p>
-          <p>Tipe: {pet.type}</p>
           <p>Umur: {pet.age} years</p>
           <p>Berat: {pet.weight}</p>
           <p>Lokasi: {pet.location}</p>
-          <button onClick={() => setIsModalOpen(true)}>Book Now</button>
+          {/* <button onClick={() => setIsModalOpen(true)}>Book Now</button> */}
 
           {/* Modal untuk Form Booking */}
           <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>

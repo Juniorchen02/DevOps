@@ -88,7 +88,7 @@ input:focus {
     margin-top: 20px; /* Space above the button */
 }
 
-button[type="submit"] {
+button[type="submit"], .confirm-button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 28px; /* Slightly larger button */
@@ -99,7 +99,7 @@ button[type="submit"] {
     transition: background-color 0.3s, transform 0.2s;
 }
 
-button[type="submit"]:hover {
+button[type="submit"]:hover, .confirm-button:hover {
     background-color: #45A049;
     transform: scale(1.03); /* Slightly larger scale */
 }

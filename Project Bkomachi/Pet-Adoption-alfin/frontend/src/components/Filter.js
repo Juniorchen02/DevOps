@@ -1,8 +1,21 @@
-// Filter.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Filter = ({ selectedTypes, onFilterChange, onReset }) => {
-  const petTypes = ['Anjing', 'Kelinci', 'Kucing', 'Monyet'];
+  const [petTypes, setPetTypes] = useState([]);
+
+  useEffect(() => {
+    const fetchPetTypes = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/pet-types'); // Ganti dengan URL yang sesuai
+        const data = await response.json();
+        setPetTypes(data);
+      } catch (error) {
+        console.error('Failed to fetch pet types:', error);
+      }
+    };
+
+    fetchPetTypes();
+  }, []);
 
   return (
     <div className="filter-container">
