@@ -50,7 +50,6 @@ const PetDetails = () => {
           <p>Lokasi: {pet.location}</p>
           {/* <button onClick={() => setIsModalOpen(true)}>Book Now</button> */}
 
-          {/* Modal untuk Form Booking */}
           <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
             <h3>Booking Form</h3>
             <form onSubmit={handleSubmit}>
